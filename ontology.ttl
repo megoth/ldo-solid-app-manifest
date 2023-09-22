@@ -16,7 +16,7 @@ manifest:
     dcterms:issued "2023-09-22"^^xsd:date ;
     dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
     vann:preferredNamespacePrefix "manifest" ;
-    vann:preferredNamespaceUri "https://github.com/megoth/ldo-solid-app-manifest/ontology.ttl#" .
+    vann:preferredNamespaceUri "https://raw.githubusercontent.com/megoth/ldo-solid-app-manifest/main/ontology.ttl" .
 
 manifest:Document
     a rdfs:Class ;
@@ -55,6 +55,20 @@ manifest:appDescription
     rdfs:label "Description of the Solid app that this manifest describes"@en-US ;
     rdfs:domain manifest:Manifest ;
     rdfs:range xtypes:Fragment-Markdown .
+
+manifest:extends
+    a rdf:Property ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "Web app manifest resource for the Solid app"@en-US ;
+    rdfs:domain manifest:Manifest ;
+    rdfs:range rdfs:Resource .
+
+manifest:iconUrl
+    a rdf:Property ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "URL for the icon for the Solid app; will override whatever is given for icons in the web app manifest"@en-US ;
+    rdfs:domain manifest:Manifest ;
+    rdfs:range rdfs:Resource .
 
 manifest:supports
     a rdf:Property ;

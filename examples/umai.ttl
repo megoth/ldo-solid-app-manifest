@@ -20,7 +20,8 @@ Umai is a simple Recipes Manager to collect all your precious recipes.
 - 🔐 Keep data safe in your Solid POD.
 """ ;
     manifest:appUrl <https://umai.noeldemartin.com/> ;
-    manifest:supports app:recipe .
+    manifest:supports app:recipe ;
+    manifest:extends <https://umai.noeldemartin.com/manifest.webmanifest> .
 
 app:recipe
     a manifest:Support ;
