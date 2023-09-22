@@ -1,0 +1,28 @@
+@prefix app: <#> .
+@prefix manifest: <https://github.com/megoth/ldo-solid-app-manifest/ontology.ttl#> .
+@prefix schema: <http://schema.org/> .
+
+</>
+    a manifest:Document ;
+    manifest:list app:Manifest .
+
+app:Manifest
+    a manifest:Manifest ;
+    manifest:appName "Umai" ;
+    manifest:appDescription """
+Umai is a simple Recipes Manager to collect all your precious recipes.
+
+- 📗 Create your own cookbook.
+- ✨ Import recipes from any website.
+- 🧙 Adjust ingredient quantities automatically.
+- 👨‍🍳 Share recipes with your friends.
+- 📱 Use it completely offline (it's an offline first PWA!).
+- 🔐 Keep data safe in your Solid POD.
+""" ;
+    manifest:appUrl <https://umai.noeldemartin.com/> ;
+    manifest:supports app:recipe .
+
+app:recipe
+    a manifest:Support ;
+    manifest:type schema:Recipe ;
+    manifest:url "https://umai.noeldemartin.com/viewer?url=[url]" .

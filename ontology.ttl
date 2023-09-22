@@ -1,0 +1,83 @@
+@prefix manifest: <#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xtypes: <http://graphite.ecs.soton.ac.uk/xtypes/#xtypes:> .
+
+manifest:
+    a owl:Ontology ;
+    owl:versionInfo "0.1" ;
+    dcterms:title "Solid app manifest ontology"@en-US ;
+    dcterms:description """Ontology describing Solid App manifest."""@en-US ;
+    dcterms:creator <https://icanhasweb.net/#me> ;
+    dcterms:issued "2023-09-22"^^xsd:date ;
+    dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
+    vann:preferredNamespacePrefix "manifest" ;
+    vann:preferredNamespaceUri "https://github.com/megoth/ldo-solid-app-manifest/ontology.ttl#" .
+
+manifest:Document
+    a rdfs:Class ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "The class for a document that contains manifests"@en-US .
+
+manifest:list
+    a rdf:Property ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "A list that contains manifests"@en-US ;
+    rdfs:domain manifest:Document ;
+    rdfs:range manifest:Manifest .
+
+manifest:Manifest
+    a rdfs:Class ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "The class for a manifest"@en-US .
+
+manifest:appName
+    a rdf:Property ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "Name for the Solid app that this manifest describes"@en-US ;
+    rdfs:domain manifest:Manifest ;
+    rdfs:range xsd:string .
+
+manifest:appUrl
+    a rdf:Property ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "URL for the Solid app that this manifest describes"@en-US ;
+    rdfs:domain manifest:Manifest ;
+    rdfs:range rdfs:Resource .
+
+manifest:appDescription
+    a rdf:Property ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "Description of the Solid app that this manifest describes"@en-US ;
+    rdfs:domain manifest:Manifest ;
+    rdfs:range xtypes:Fragment-Markdown .
+
+manifest:supports
+    a rdf:Property ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "List of ways the app supports RDF types"@en-US ;
+    rdfs:domain manifest:Manifest ;
+    rdfs:range manifest:Support .
+
+manifest:Support
+    a rdfs:Class ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "The class for a way that the Solid app support RDF types"@en-US .
+
+manifest:type
+    a rdf:Property ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "The class of the type that the Solid app supports for the given URL"@en-US ;
+    rdfs:domain manifest:Support ;
+    rdfs:range rdfs:Class .
+
+manifest:url
+    a rdf:Property ;
+    rdfs:isDefinedBy manifest: ;
+    rdfs:label "The URL that allows the Solid app to handle the data. The string for this is special, see documentation."@en-US ;
+    rdfs:domain manifest:Support ;
+    rdfs:range xsd:string .

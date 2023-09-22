@@ -1,0 +1,22 @@
+@prefix app: <#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix manifest: <https://github.com/megoth/ldo-solid-app-manifest/ontology.ttl#> .
+
+</>
+    a manifest:Document ;
+    manifest:list app:Manifest .
+
+app:Manifest
+    a manifest:Manifest ;
+    manifest:appName "Penny" ;
+    manifest:appDescription """
+Penny is a tool for developers of [Solid](https://solidproject.org/) apps. It allows you to inspect the data on your Pod and, if you have the appropriate permissions, to modify and add new data. It presumes familiarity with the concepts of Solid.
+
+To get started, connect to your Pod to inspect its data, or manually enter a URL to inspect at the top of the page. And if you have feedback, please [get in touch](https://gitlab.com/vincenttunru/penny/-/issues/new)!""" ;
+    manifest:appUrl <https://penny.vincenttunru.com/> ;
+    manifest:supports app:resource .
+
+app:resource
+    a manifest:Support ;
+    manifest:type ldp:Resource ;
+    manifest:url "https://penny.vincenttunru.com/explore/?url=[url]" .
