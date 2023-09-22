@@ -1,0 +1,30 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldp: <http://www.w3.org/ns/ldp#>
+PREFIX manifest: <https://github.com/megoth/ldo-solid-app-manifest/ontology.ttl#>
+PREFIX solid: <http://www.w3.org/ns/solid/terms#>
+PREFIX shape: <https://icanhasweb.net/shapes/manifest.ttl#>
+PREFIX space: <http://www.w3.org/ns/pim/space#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xtypes: <http://graphite.ecs.soton.ac.uk/xtypes/#xtypes:>
+
+shape:Document EXTRA rdf:type {
+  rdf:type [manifest:Document] ;
+  manifest:list @shape:Manifest* ;
+}
+
+shape:Manifest EXTRA rdf:type {
+  rdf:type [manifest:Manifest] ;
+  rdf:appName xsd:string ;
+  rdf:appDescription xtypes:Fragment-Markdown ;
+  rdf:appUrl rdfs:Resource ;
+  manifest:supports @shape:Support* ;
+}
+
+shape:Support EXTRA rdf:type {
+  rdf:type [manifest:Support] ;
+  manifest:type rdfs:Class ;
+  manifest:url xsd:string ;
+}
