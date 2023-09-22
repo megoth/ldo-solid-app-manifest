@@ -4,9 +4,9 @@
 
 </>
     a manifest:Document ;
-    manifest:list app:Manifest .
+    manifest:list app:solid-app .
 
-app:Manifest
+app:solid-app
     a manifest:Manifest ;
     manifest:appName "Penny" ;
     manifest:appDescription """
